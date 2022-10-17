@@ -1,0 +1,49 @@
+---
+title: "Debrief"
+author: "Author"
+output: 
+  jspsychr::basic_html:
+    css: NULL
+    self_contained: yes
+    theme: null
+    toc: no
+    cold_folding: no
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, out.width="25%", echo=FALSE, fig.align="center"}
+knitr::include_graphics("imgs/ccp.png")
+```
+
+You have completed the task. Thank you for participating.
+
+If you completed this study through Amazon Mechanical Turk, your code will be displayed on the next page.
+
+If you completed this study on SONA, then click the button to receive your participation credit. An explanation of the study is below, please print this page if you would like to keep the debriefing for your records.
+
+<button type="button" id="continue" class="jspsych-btn">Continue</button>
+
+## Debriefing
+
+Background information:
+
+The experiment you participated in was a memory test for pictures of natural scenes. More specifically, we were interested in testing limitations of the ability to forget information. The task involved two phases, an encoding phase and a recognition test phase. During the encoding phase, on you were presented with pictures followed by an instructional cue. The cue was an instruction to forget, or replay the pictures in your mind. During the recognition test you were presented with pairs of pictures. For each pair, one of the pictures was OLD (seen before during the encoding phase), and one of the pictures was NEW (never shown before). Your task was to choose the OLD picture.
+
+Our study was an attempt to replicate the directing forgetting effect. The directed forgetting effect occurs when people have better memory for items they were instructed to remember compared to items they were instructed to forget.
+
+Hypothesis:
+
+Our hypothesis was that participants would have better recognition memory for the remember-cued pictures compared to the forget-cued pictures.
+
+Independent variable:
+
+The primary manipulation in the study was the instructional cue presented during the encoding phase. The instructional cue was an R or F, and was used to instruct participants to remember or forget particular pictures.
+
+Dependent variable:
+
+The dependent variable was accuracy on the recognition memory test. Specifically, the proportion of trials where participants correctly identified the OLD picture among the pair.
+
+This study was an experiment. Our experiment manipulated instructions to forget or remember individual pictures. We predict that people will have better accuracy on the recognition memory test for pictures they attempted to remember compared to pictures they attempted to forget.

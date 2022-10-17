@@ -1,0 +1,193 @@
+---
+title: "List Generation"
+author:
+  - name: Matthew J. C. Crump
+    orcid: 0000-0002-5612-0090
+    email: mcrump@brooklyn.cuny.edu
+    url: crumplab.com
+    affiliations:
+      - name: Brooklyn College of CUNY
+      - name: Graduate Center of CUNY
+bibliography: references.bib
+order: 1
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Method 1
+
+The following method for generating associative lists was inspired by @arndt2003.
+
+Here, we import free-association norms from @nelson2004's Appendix A.
+
+```{r}
+library(tidyverse)
+
+# read in Appendix A from Nelson, Mcevoy & Schreiber 2004
+A1 <- data.table::fread('Nelson-BRM-2004/Appendices .csv files/AppendixA1.csv')
+A2 <- data.table::fread('Nelson-BRM-2004/Appendices .csv files/AppendixA2.csv')
+
+# delete first two empty rows
+A1 <- A1[-1:-2,] 
+A2 <- A2[-1:-2,] 
+
+## column 10 name is spelled differently
+#colnames(A1) == colnames(A2)
+
+# assign A2 the same colnames as A1
+colnames(A2) <- colnames(A1)
+
+# merge 
+nms_2004_A_norms <- rbind(A1,A2)
+
+# coerce non-numeric entries to NA
+nms_2004_A_norms <- nms_2004_A_norms %>%
+  mutate(`Forward Strength` = as.numeric(`Forward Strength`),
+         `Backward Strength` = as.numeric(`Backward Strength`))
+
+# make tibble, print example
+nms_2004_A_norms <- as_tibble(nms_2004_A_norms)
+knitr::kable(nms_2004_A_norms[1:10,])
+```
+
+### Example words
+
+In this example the database is filtered by a particular cue word (ANIMAL), and then sorted by the backward association strength for free-association targets. The list of words in the targets column are free-associates that were produced by participants.
+
+```{r}
+
+# pick a cue, list targets by backward strength descending
+B_result <- nms_2004_A_norms %>%
+  filter(Cues == 'ANIMAL') %>%
+  arrange(desc(`Backward Strength`))
+
+#print first 10
+knitr::kable(B_result[1:10,])
+
+```
+
+In this example the database is filtered for targets matching a particular word (ANIMAL), and then sorted by forward association strength from the different cue words that led to the generation of the target in free-association.
+
+```{r}
+# pick a target, list cues that produce it by forward strength descending
+F_result <- nms_2004_A_norms %>%
+  filter(Targets == 'ANIMAL') %>%
+  arrange(desc(`Forward Strength`))
+
+# print first 10
+knitr::kable(F_result[1:10,])
+```
+
+### Highly produced theme words
+
+This method counts the number of productions for each target, then orders them by most to least produced. Theme words for associative lists are taken from the top of the most produced targets down. Words are eliminated as they are selected for a list.
+
+```{r, eval = FALSE}
+
+# words produced in free association arranged by total number of productions
+target_counts <- nms_2004_A_norms %>%
+  group_by(Targets) %>%
+  summarize(num_produced = sum(`# Subjects Producing Target`)) %>%
+  arrange(desc(num_produced))
+
+# create vector to track selected words
+already_selected <- c()
+study_list_df <- data.frame()
+
+for(i in 1:200) {
+  # pick a theme word
+  theme <- target_counts$Targets[i]
+  
+  # get potential study list by backward association
+  BA_targets <- nms_2004_A_norms %>%
+    filter(Cues %in% already_selected == FALSE,
+           Targets %in% already_selected == FALSE) %>%
+    filter(Cues == theme ) %>%
+    arrange(desc(`Backward Strength`))
+  
+  # make sure there is at least 8 words in the study list
+  if ( dim(BA_targets)[1] >= 8 ) {
+    study_list <- BA_targets[1:8,]
+    already_selected <- c(already_selected,
+                          unique(c(study_list$Cues,study_list$Targets)))
+    study_list_df <- rbind(study_list_df,study_list)
+  }
+}
+
+method_1_list <- study_list_df
+saveRDS(method_1_list,"method_1_list.RDS")
+
+```
+```{r}
+method_1_list <- readRDS('method_1_list.RDS')
+```
+
+This method produced `r dim(method_1_list)[1]/8` study lists.
+
+The following table previews the first 8 lists. The Cue word is the list theme, and the target words are associates presented for each study list.
+
+```{r}
+# print first 8 lists
+knitr::kable(method_1_list[1:80,])
+```
+
+### Method 1 unit tests
+
+Confirm that all of the words are unique across all lists
+
+```{r}
+# confirm all theme words are unique
+length(table(method_1_list$Cues)) == 100
+
+#check all words are unique
+all_words <- c(unique(method_1_list$Cues),method_1_list$Targets)
+length(all_words) == length(unique(all_words))
+
+```
+
+### Method 1 list analysis
+
+```{r}
+m1_analysis <- list()
+m1_analysis$mean_cue_word_properties <- method_1_list %>%
+  mutate(list_number = rep(1:100,each=8),
+         `Target Frequency (K&F)` = as.numeric(`Target Frequency (K&F)`)) %>%
+  group_by(list_number) %>%
+  filter(is.na(`Backward Strength`) == FALSE,
+         is.na(`Target Frequency (K&F)`) == FALSE) %>%
+  summarize(MBAS = mean(`Backward Strength`),
+            MFAS = mean(`Forward Strength`),
+            M_word_freq = mean(`Target Frequency (K&F)`)
+            )
+m1_analysis$cue_word_descriptives <- m1_analysis$mean_cue_word_properties %>%
+  select(-list_number) %>%
+  rename( MWF = M_word_freq) %>%
+  summarize_all(list(mean = mean,
+                     sd = sd,
+                     min = min,
+                     max =max)) %>%
+  pivot_longer(everything(),
+               names_to = c(".value", "set"),
+               names_sep = "_")
+
+knitr::kable(m1_analysis$cue_word_descriptives)
+
+```
+
+
+## Method 2
+
+Use the lists from @roediger1995. Each column contains a single list, and the theme word is displayed in the first row of each column.
+
+```{r}
+source('AllWords.R')
+
+knitr::kable(stimlist)
+```

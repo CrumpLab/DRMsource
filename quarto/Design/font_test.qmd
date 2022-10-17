@@ -1,0 +1,22 @@
+---
+title: "All Fonts test"
+css: distinctive_fonts.css
+editor: visual
+order: 3
+---
+
+This is a test page that loads `distinctive_fonts.css`, which contains font-family definitions for all of the fonts in the `distinctive_fonts/` folder. The code chunk below automates the typing of `<p> ABCDEFGHIJ </p>` paragraphs to display some text in all of the available fonts.
+
+```{r, results='asis'}
+library(stringr)
+all_fonts <- list.files('distinctive_fonts/')
+fontnames <- gsub(".woff2","",all_fonts)
+
+for (fontname in fontnames){
+  stimulus <- paste0(LETTERS[1:10], collapse="")
+  test_font <- '<p style="font-family: \'{fontname}\'; font-size: 50px;"> {stimulus}.</p>'
+  cat(str_glue(test_font))
+  cat('\n')
+}
+
+```

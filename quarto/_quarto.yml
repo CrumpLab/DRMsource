@@ -1,0 +1,28 @@
+project:
+  type: website
+  output-dir: ../docs/quarto
+
+website:
+  title: "DRMsource"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+      - href: ../index.html
+        text: R package
+  sidebar:
+    - title: "Home"
+      style: "floating"
+      collapse-level: 3
+      align: left
+      contents: auto
+
+format:
+  html:
+    theme: minty
+    css: styles.css
+    toc: true
+
+editor: visual
+

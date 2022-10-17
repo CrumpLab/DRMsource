@@ -1,0 +1,27 @@
+---
+title: "False recollection and source attribution"
+author:
+  - name: Matthew J. C. Crump
+    orcid: 0000-0002-5612-0090
+    email: mcrump@brooklyn.cuny.edu
+    url: crumplab.com
+    affiliations:
+      - name: Brooklyn College of CUNY
+      - name: Graduate Center of CUNY
+  - name: Drew Shives
+    affiliations:
+      - name: Graduate Center of CUNY
+description: "A project investigating false recollection and source attribution phenomena."
+title-block-style: default
+bibliography: references.bib
+---
+
+```{=html}
+<!--#  For author yaml structure see https://quarto.org/docs/journals/authors.html  
+-->
+```
+This is a website for a cognitive psychology research project. The aim of this website is to create and share reproducible research assets throughout the project lifespan. Our approach to creating reproducible assets is inspired by the "Vertical" approach developed by @vuorre2021, which extends the R-package template and relies on `pkgdown` for website creation. This repository also uses [quarto](https://quarto.org) to create this project website.
+
+## General Repository information
+
+The main repository is a vertical project with an additional `quarto/` folder for rendering any quarto assets to the quarto website. The main repository also includes an R-package structure, and a website rendered by pkgdown. This results in two websites: a quarto project website, and a pkgdown website. The quarto website will be used for most project-development and communication functions. The pkgdown website will be reserved for any R package development associated with this cognitive psychology project.

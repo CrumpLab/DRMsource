@@ -1,0 +1,47 @@
+---
+title: "Project Motivation"
+author:
+  - name: Matthew J. C. Crump
+    orcid: 0000-0002-5612-0090
+    email: mcrump@brooklyn.cuny.edu
+    url: crumplab.com
+    affiliations:
+      - name: Brooklyn College of CUNY
+      - name: Graduate Center of CUNY
+description: "The purpose of this page is to develop and clarify the research question and aims for this project."
+bibliography: references.bib
+editor: visual
+---
+
+## Mixed vs. pure-source lists and false-recollection: Resolving an empirical discrepancy
+
+In reviewing false-recollection phenomena from DRM/Associative list procedures, we noted an empirical discrepancy that could inspire aspects of the current project.
+
+The issue is whether or not mixing source-attributes during encoding increases or decreases false-recognition and source-attribution rates.
+
+@arndt2003 measured false-recognition for non-presented theme words that were associatively related to lists of study words. They also varied visual presentation of words using distinctive fonts.
+
+Skipping over many details, the correlated condition presented all words in a study list in the same font, and the uncorrelated and unique condition presented words in different fonts. At test, words were presented in the same font as study, and critical theme words were presented in the same kind of font as associated lists were presented in.
+
+A clear result across three experiments is that rates of false-recognition for theme words are reduced for the uncorrelated and unique font conditions compared correlated font conditions.
+
+![](images/Screen%20Shot%202022-10-13%20at%204.59.50%20PM.png)
+
+![](images/Screen%20Shot%202022-10-13%20at%205.00.09%20PM.png)
+
+![](images/Screen%20Shot%202022-10-13%20at%205.00.38%20PM.png)
+
+@roedigeriii2004 investigated illusory recollection of voices using associative lists spoken in a male or female voice.
+
+In their first experiment, the encoding phase included whole lists spoken by a single male or female voice. 8 lists were spoken by the male voice, and 8 lists were spoken by the female voice. After each list subjects either performed arithmetic, or list recall.
+
+The test phase involved a recognition memory test for visually presented words. There were 96 words, 48 old (items 1, 7, 10 from each study list) and 48 new (24 critical lures, and 24 non-studied items). On each test trial participants judged whether the word was old or new, and whether it was spoken by a female or male voice. The response options were "male-old, female-old, old, and new". Participants were instructed to select "old" on trials when they were unsure of the speaker voice. The second experiment used a mixed-voice condition where list words were presented in both male and female voice during encoding.
+
+Results from both experiments are shown in this table. Notably, opposite to @arndt2003, participants showed even greater levels of false-recognition for the mixed voice compared to pure-voice lists.
+
+```{r}
+#| out.width: 75%
+#| echo: FALSE
+knitr::include_graphics('images/Screen Shot 2022-10-13 at 5.07.13 PM.png')
+```
+

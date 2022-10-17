@@ -1,0 +1,89 @@
+---
+title: "Voice Sources"
+editor: visual
+resources: en-AU-Neural2-A/
+bibliography: references.bib
+---
+
+DRM lists from @roediger1995 were converted into auditory stimuli using Google's cloud text-to-speech service. This resulted in 12 different male voices (2 Australian, 2 British, 2 Indian, and 6 US accents) reading each word in each list, and 13 different female voices (3 Australian, 3 British, 2, Indian, and 5 US accents) reading each word in each list.
+
+```{r, eval = FALSE}
+
+## RUN ONCE
+library(tidyverse)
+
+# import DRM word lists
+source('AllWords.R')
+
+# authenticate with google
+library(googleLanguageR)
+gl_auth('') # use json from service token
+
+# get possible languages
+languages <- gl_talk_languages()
+
+english_voices <- languages %>%
+  filter(stringr::str_detect(languageCodes, 'en-')) %>%
+  filter(stringr::str_detect(name, 'Standard') == FALSE)
+
+for (voice in english_voices$name) {
+  for (list in 1:dim(stimlist)[2]) {
+    for (w in 1:dim(stimlist)[1]) {
+      
+      word <- stimlist[w,list]
+      list_theme <- stimlist[1,list]
+      if(w == 1){
+        type <- "CR"
+      } else{
+        type <- "study"
+      }
+    
+      voice_path <- voice
+      list_path <- list_theme
+      folder_path <- paste0("audio_DRM/",voice_path,"/",list_path,"/")
+      audio_name <- paste0(folder_path,w,"_",word,"_",type,"_",list_theme,"_",list,".mp3")
+      
+      if(dir.exists(folder_path) == FALSE) dir.create(folder_path, recursive = TRUE)
+      
+      gl_talk(
+        input = word,
+        output = audio_name,
+        name = voice,
+        audioEncoding = "MP3",
+        speakingRate = 1,
+        pitch = 0,
+        volumeGainDb = 0,
+        sampleRateHertz = 24000,
+        inputType = "text",
+        effectsProfileIds = NULL
+      )
+    }
+  }
+}
+
+```
+
+
+## Example 1
+
+
+<audio controls id="listenLive1">
+  <source src="en-AU-Neural2-A/anger/1_anger_CR_anger_1.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+## Example 2
+
+<audio controls id="listenLive2">
+  <source src="en-AU-Neural2-A/anger/10_happy_study_anger_1.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+## Example 3
+
+<audio controls id="listenLive3">
+  <source src="en-AU-Neural2-A/anger/11_fight_study_anger_1.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+

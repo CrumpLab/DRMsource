@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<meta name="author" content="Matt Crump" />
+<title>DM2</title>
+<link rel="stylesheet" href="css/custom.css" />
+<script src="index_files/header-attrs-2.11/header-attrs.js"></script>
+
+<script src="stimlist.js"></script>
+
+<script src="jspsych/jspsych.js"></script>
+<script src="jspsych/plugin-image-slider-response.js"></script>
+
+<link href="jspsych/jspsych.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+
+<script type="text/javascript">
+
+// initialize JsPsych
+const jsPsych = initJsPsych({
+  on_finish: function() {
+    jsPsych.data.displayData();
+  }
+});
+
+// define functions
+
+var randomized_images = jsPsych.randomization.shuffle(all_images);
+var repeat_images = randomized_images.slice(0,9);
+var new_images = randomized_images.slice(10,1000);
+
+var experiment = {
+  stim_num: 0,
+  repeats: 0
+};
+
+const compute_old_performance = () => {
+  // compute accuracy for old trials
+  var old_trials = jsPsych.data.get().filter({stimulus_type: 'old',
+                                              stim_num: experiment.stim_num});
+  var old_accuracy = Math.round(old_trials.select('correct').mean());
+  var old_count = old_trials.select('correct').count();
+
+  if (old_accuracy >= .75 && old_count > 2) {
+    experiment.stim_num = experiment.stim_num+1;
+    experiment.repeats = 0;
+  } else {
+    experiment.repeats = experiment.repeats+1;
+  }
+};
+
+// choose trial is evaluated on_start
+const choose_trial = () => {
+
+  // 50% choose OLD trial
+  if(jsPsych.randomization.sampleBernoulli(0.5)){
+
+    file_path = repeat_images[experiment.stim_num].file_path;
+    condition = "old";
+
+  // 50% choose NEW trial
+  } else {
+
+    stim_num = jsPsych.getProgress().current_trial_global;
+    file_path =  new_images[stim_num].file_path;
+    condition = "new";
+
+  }
+    return {file_path, condition, stim_num: experiment.stim_num};
+  };
+
+
+console.log(choose_trial());
+
+var rand_subject_id = jsPsych.randomization.randomID(16);
+jsPsych.data.addProperties({ID: rand_subject_id});
+
+const trial = {
+    type: jsPsychImageSliderResponse,
+    data: {
+      stimulus_type: 'old'
+    },
+    on_start: function(trial) {
+      get_stim = choose_trial();
+      trial.stimulus = get_stim.file_path;
+      trial.data.stimulus_type = get_stim.condition;
+      trial.data.stim_num = get_stim.stim_num;
+      trial.data.repetitions = experiment.repeats;
+    },
+    stimulus: "",
+    labels: ['New', 'Old'],
+    prompt: "<p>Rate your confidence?</p>",
+    slider_start: 0,
+    min: -100,
+    max: 100,
+    on_finish: (data) => {
+
+      //add next trial
+      if(jsPsych.getProgress().current_trial_global <= 25 ){
+        jsPsych.addNodeToEndOfTimeline(trial);
+      }
+
+      //evaluate correct responses OLD items
+      data.correct = 0;
+      if(data.stimulus_type == "old" && data.response >= 0){
+        data.correct = 1;
+      }
+      //evaluate correct responses NEW items
+      if(data.stimulus_type == "new" && data.response <= 0){
+        data.correct = 1;
+      }
+
+      if(data.stimulus_type == "old"){
+        compute_old_performance();
+      }
+
+      console.log(data.correct);
+
+   }
+};
+
+jsPsych.run([trial])
+
+</script>
+</body>
+</html>

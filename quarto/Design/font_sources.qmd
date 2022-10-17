@@ -1,0 +1,240 @@
+---
+title: "Font sources"
+author:
+  - name: Matthew J. C. Crump
+    orcid: 0000-0002-5612-0090
+    email: mcrump@brooklyn.cuny.edu
+    url: crumplab.com
+    affiliations:
+      - name: Brooklyn College of CUNY
+      - name: Graduate Center of CUNY
+resources: distinctive_fonts/
+editor: visual
+bibliography: references.bib
+order: 2
+---
+
+Prior work has varied the visual presentation of study and test words in the associative list procedure using different font-types [@arndt2003;@arndt2006;@arndt2010].
+
+We sought to create a similar set of fonts that could be presented on web-browsers. As a result, on October 12, 2022, approximately 300 unusual and distinctive fonts were downloaded from <https://www.fontspace.com/>, and then converted from .ttf or .otf font files to .woff2 files so they can be presented via the web.
+
+This page is used prepare the font corpos, and to test presentation of words in different fonts from the font corpus.
+
+## Initial curation of fonts
+
+This code block was used to copy all of the .woff2 files into a separate folder.
+
+```{r, eval = FALSE}
+## run-once
+all_files <- list.files('distinctive-fonts-font-collection/', recursive= TRUE, full.names=TRUE)
+
+woff2_files <- all_files[stringr::str_detect(all_files,".woff2")]
+
+file.copy(woff2_files,'distinctive_fonts/')
+```
+
+## Font Corpus
+
+All of the distinctive fonts are located in the folder `distinctive_fonts/`. There are currently `r length(list.files('distinctive_fonts/'))` fonts in the directory.
+
+```{r}
+length(list.files('distinctive_fonts/'))
+```
+
+## Example font
+
+Example of inserting a font with css, defining a class, and then writing text in the class to show the font.
+
+```{css, results='asis', echo=T   }
+
+@font-face {
+    font-family: 'Actionis';
+    src: url('distinctive_fonts/Actionis-6Yex.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.Actionis {
+   font-family: 'Actionis';
+}
+
+```
+
+::: {.Actionis}
+
+### Actionis {.Actionis}
+
+THIS IS A TEST OF THE ACTIONIS FONT.
+
+:::: {.h1 .Actionis}
+ABDCEFGHIJKLMNOPQRSTUVWXYZ
+::::
+
+:::
+
+## Programmatically writing CSS
+
+The following code block is embedded inside a css style element. It selects a font and writes a font-family declaration to css. Results are printed 'asis'. These font families can then be called later on to show specific fonts.
+
+```{r, results = 'asis', echo=T, eval = F}
+library(stringr)
+
+all_fonts <- list.files('distinctive_fonts/')
+
+selected_font <- all_fonts[1]
+
+fontname <- gsub(".woff2",replacement = "", selected_font)
+fontpath <- paste0('distinctive_fonts/',selected_font)
+  
+font_css_body <- c("font-family: '{fontname}';
+    src: url('{fontpath}') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;")
+
+font_css_body <- str_glue(font_css_body)
+
+cat('@font-face { ',font_css_body,'}')
+
+```
+
+<style type="text/css">
+
+```{r, results = 'asis', echo=F}
+library(stringr)
+
+all_fonts <- list.files('distinctive_fonts/')
+
+selected_font <- all_fonts[1]
+
+fontname <- gsub(".woff2",replacement = "", selected_font)
+fontpath <- paste0('distinctive_fonts/',selected_font)
+  
+font_css_body <- c("font-family: '{fontname}';
+    src: url('{fontpath}') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;")
+
+font_css_body <- str_glue(font_css_body)
+
+cat('@font-face { ',font_css_body,'}')
+
+```
+
+</style>
+
+
+```{r, results= 'asis'}
+
+test_font <- '<p style="font-family: \'{fontname}\'">This is a paragraph written in {fontname}.</p>'
+str_glue(test_font)
+
+```
+
+
+## Random selected examples
+
+The goal here is to randomly choose X number of fonts, use R to automate declaration of CSS font-family descriptions, and then print examples of the fonts. This code chunk is embedded in a css style element in this page, and functions to preload X (20) number of randomly selected fonts. The fonts change on each render of this page.
+
+```{r, eval=F}
+all_fonts <- list.files('distinctive_fonts/')
+
+save_font_names <- c()
+for(i in sample(1:length(all_fonts),20)){
+  selected_font <- all_fonts[i]
+  
+  fontname <- gsub(".woff2",replacement = "", selected_font)
+  fontpath <- paste0('distinctive_fonts/',selected_font)
+  save_font_names <- c(save_font_names,fontname)
+    
+  font_css_body <- c("font-family: '{fontname}';
+      src: url('{fontpath}') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;")
+  
+  font_css_body <- str_glue(font_css_body)
+  
+  cat('@font-face { ',font_css_body,'}')
+  cat('\n')
+}
+```
+
+<style type="text/css">
+
+```{r, results = 'asis', echo=F}
+all_fonts <- list.files('distinctive_fonts/')
+
+save_font_names <- c()
+for(i in sample(1:length(all_fonts),20)){
+  selected_font <- all_fonts[i]
+  
+  fontname <- gsub(".woff2",replacement = "", selected_font)
+  fontpath <- paste0('distinctive_fonts/',selected_font)
+  save_font_names <- c(save_font_names,fontname)
+    
+  font_css_body <- c("font-family: '{fontname}';
+      src: url('{fontpath}') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;")
+  
+  font_css_body <- str_glue(font_css_body)
+  
+  cat('@font-face { ',font_css_body,'}')
+  cat('\n')
+}
+```
+
+</style>
+
+
+```{r, results= 'asis'}
+
+for (fontname in save_font_names){
+  stimulus <- paste0(LETTERS[1:10], collapse="")
+  test_font <- '<p style="font-family: \'{fontname}\'; font-size: 50px;"> {stimulus}.</p>'
+  cat(str_glue(test_font))
+  cat('\n')
+}
+
+```
+
+## CSS file creation
+
+The above can be used to generate .css files with some number of font-families to load. There may be loading time issues, especially as the number of fonts grows large.
+
+The goal of this section is to automate the creation of .css resource files that can be added to webpages to preload sets of fonts from this repository.
+
+Writes all fonts to `distinctive_fonts.css`.
+
+```{r, eval = F}
+all_fonts <- list.files('distinctive_fonts/')
+
+save_font_names <- c()
+for(i in 1:length(all_fonts) ){
+  selected_font <- all_fonts[i]
+  
+  fontname <- gsub(".woff2",replacement = "", selected_font)
+  fontpath <- paste0('distinctive_fonts/',selected_font)
+  save_font_names <- c(save_font_names,fontname)
+    
+  font_css_body <- c("font-family: '{fontname}';
+      src: url('{fontpath}') format('woff2');
+      font-display: swap;
+      ")
+  
+  font_css_body <- str_glue(font_css_body)
+  
+  cat('@font-face { ',font_css_body,'}',
+      '\n','\n',
+      file = "distinctive_fonts.css", append=TRUE)
+}
+
+
+```
+
+
+

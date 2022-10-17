@@ -1,0 +1,27 @@
+---
+title: "Project-general reading"
+author:
+  - name: Matthew J. C. Crump
+    orcid: 0000-0002-5612-0090
+    email: mcrump@brooklyn.cuny.edu
+    url: crumplab.com
+    affiliations:
+      - name: Brooklyn College of CUNY
+      - name: Graduate Center of CUNY
+description: "Background reading on false-recollection phenomena, with a focus on DRM and associative list procedures"
+bibliography: references.bib
+order: 2
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+@roediger1995 revived the deese procedure.
+
+@arndt2006
+
+## References

@@ -1,0 +1,62 @@
+---
+title: "Project-specific reading"
+author:
+  - name: Matthew J. C. Crump
+    orcid: 0000-0002-5612-0090
+    email: mcrump@brooklyn.cuny.edu
+    url: crumplab.com
+    affiliations:
+      - name: Brooklyn College of CUNY
+      - name: Graduate Center of CUNY
+description: "Background reading focusing on source-attribution issues and false-recollection in associative list procedures"
+bibliography: references.bib
+order: 1
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+This is a notes page for collecting and organizing prior work that is closely related to the current project. This page will likely include brief summaries of articles, sometimes verbatim screenshots of tables, figures, abstracts or other noteworthy text, as well as occasional synthesis and draft attempts to express an emerging understanding of the issues.
+
+## Literature review plan
+
+1.  DRM/Associative list research looking at source-attribution
+2.  DRM/Associative list research looking at context-reinstatement between encoding and test
+
+### Voice presentation and DRM
+
+@roedigeriii2004 investigated illusory recollection of voices using associative lists spoken in a male or female voice.
+
+In their first experiment, the encoding phase included whole lists spoken by a single male or female voice. 8 lists were spoken by the male voice, and 8 lists were spoken by the female voice. After each list subjects either performed arithmetic, or list recall.
+
+The test phase involved a recognition memory test for visually presented words. There were 96 words, 48 old (items 1, 7, 10 from each study list) and 48 new (24 critical lures, and 24 non-studied items). On each test trial participants judged whether the word was old or new, and whether it was spoken by a female or male voice. The response options were "male-old, female-old, old, and new". Participants were instructed to select "old" on trials when they were unsure of the speaker voice.
+
+The results are shown in the screenshot from the paper. Participants had a slightly higher rate of voice-attributions in the recall compared to math encoding tasks (.42 vs .36). Participants had similar rates of voice-attributions for list items and critical lures, which were both much higher than for non-studied items. Participants were more likely to correctly attribute the source for list items, and their source misattributions for critical lures were more likely to be congruent with the voice used to read the list than incongruent.
+
+![](images/Screen%20Shot%202022-10-11%20at%208.06.25%20AM.png)
+
+The results from Experiment 2, where each list was presented by male and female voices (mixed-voice) are shown in the next screenshot. There was a generally higher rate of voice attributions, and voice-attribution accuracy increased for list items compared to Experiment 1. The rate fo voice misattributions for critical lures was generally high, but was not biased by speaker voice type. Participants were equally likely to claim the critical lure was spoken by a male or female voice.
+
+![](images/Screen%20Shot%202022-10-11%20at%208.49.44%20AM.png)
+
+@dodson2007 examines a role for test conditions to provoke illusory recollective experiences. He does not use DRM lists, but instead presents words in a female or male voice during encoding. At test, participants judge old/new, and then make a voice-source attribution for old items, with strict instructions to only choose a voice if they had specific recollective experience, otherwise they choose don't know. Test items are presented in the same or different voice as encoding. The match/mismatch of test voice biases source-attribution, but does not lead to differences in participants choosing they don't know the source. Experiment 2 shows similar results with a remember/know procedure.
+
+### Font-presentation and DRM
+
+@arndt2003 presented theme-lure lists to participants using unique fonts. E1 and E2 varied whether the font conditions were manipulated between or within-subjects (a test of distinctiveness heuristic predictions). In the correlated font condition, all words in a theme were presented in the same font. At test, all study items and the critical lure were presented in the same font as encoding. In the uncorrelated font condition, words in a theme were presented in different fonts. At test, all study items were presented in the same fonts as encoding, and the critical lure was presented in the same font as one of the theme words. In the unique font condition, words were presented in many different fonts. High rates of false-recognition for critical lures were obtained, but they were larger for the correlated font condition compared to other conditions. In other words, reduced rates of false-recognition were obtained for the unique font condition. False-recognition rates were similar for the correlated font condition and the "standard" font condition (helvetica throughout) in Experiment 3. The results did not depend on the between vs. within-subjects manipulation.
+
+-   did have subjects give remember know judgments, did not have subjects provide font-source-attribution judgments
+
+![](images/Screen%20Shot%202022-10-11%20at%2010.19.12%20AM.png)
+
+@arndt2006 conducts 4 experiments using theme-lure lists presented in different fonts at encoding and test. The experiments are generally motivated to test a distinctiveness heuristic account, a recall-to-reject account, and activation monitoring theory accounts. Experiment 1 presented lists in unique vs correlated fonts during encoding, and then presented recognition test items in a matching or mismatching font. False-recognition rates were again lower for lists presented in unique fonts than correlated fonts. Font match/mismatch at test had minimal influences for critical lures. Similar patterns were observed in E2 when mismatching fonts used helvetica, which was never presented during study; except that there was a more pronounced effect of matching (higher FAs) vs. mismatching font at test. E3 involved speeded and unspeeded recognition test deadlines. The differences between false-recognition during speeded and unspeeded conditions was attributed to general criterion shifts. E4 assigned one font to high MBAS (backward association strength) words, and another font to low MBAS words. At test, higher rates of false recognition were found when the lure was presented in the same font as the high MBAS associates.
+
+@arndt2010 extends @arndt2006 with experiments that use matching or mismatching fonts at test. The introduction clearly explains general predictions from fuzzy-trace theory, activation monitoring theory, and global-matching theories for false-recognition performance. E1 used lists with 2 or 8 associates, each assigned their own fonts. The fonts used at test matched or mismatched. There was a higher rate of false-recognition for 8-item critical lures. Mismatching fonts at test reduced the rate of false-recognition, and this effect was larger for 8 than 2 item lists. E2 tests the possibility the interaction was due to a scale effect. All lists were 10 item lists, and 2 of the items were given one font, whereas the other 8 were assigned a different font. Test items were all presented in the same font. Again, lower rates of false recognition were found when the critical lure was presented in the font associated with the 2 items rather than 8 items. E3 included matching vs mismatching fonts at test. D prime analysis suggested no differences in false-recognition between 2 and 8 item lists for the mismatch test condition. These results are interpreted in favor of global matching models.
+
+![](images/Screen%20Shot%202022-10-17%20at%2012.31.52%20PM.png)
+
+## References
