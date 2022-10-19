@@ -1,6 +1,6 @@
 ---
 title: "50 Fonts test"
-css: distinctive_fonts.css
+css: distinctive_fonts_readable.css
 editor: visual
 order: 4
 ---

@@ -251,7 +251,7 @@ for(i in 1:length(all_fonts) ){
   selected_font <- all_fonts[i]
   
   fontname <- gsub(".woff2",replacement = "", selected_font)
-  fontpath <- paste0('distinctive_font_readable/',selected_font)
+  fontpath <- paste0('distinctive_fonts_readable/',selected_font)
   save_font_names <- c(save_font_names,fontname)
     
   font_css_body <- c("font-family: '{fontname}';
