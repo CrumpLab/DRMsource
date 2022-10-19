@@ -14,7 +14,7 @@ bibliography: references.bib
 order: 2
 ---
 
-Prior work has varied the visual presentation of study and test words in the associative list procedure using different font-types [@arndt2003;@arndt2006;@arndt2010].
+Prior work has varied the visual presentation of study and test words in the associative list procedure using different font-types [@arndt2003; @arndt2006; @arndt2010].
 
 We sought to create a similar set of fonts that could be presented on web-browsers. As a result, on October 12, 2022, approximately 300 unusual and distinctive fonts were downloaded from <https://www.fontspace.com/>, and then converted from .ttf or .otf font files to .woff2 files so they can be presented via the web.
 
@@ -61,16 +61,14 @@ Example of inserting a font with css, defining a class, and then writing text in
 
 ```
 
-::: {.Actionis}
-
+::: Actionis
 ### Actionis {.Actionis}
 
 THIS IS A TEST OF THE ACTIONIS FONT.
 
-:::: {.h1 .Actionis}
+::: {.h1 .Actionis}
 ABDCEFGHIJKLMNOPQRSTUVWXYZ
-::::
-
+:::
 :::
 
 ## Programmatically writing CSS
@@ -99,6 +97,7 @@ cat('@font-face { ',font_css_body,'}')
 
 ```
 
+````{=html}
 <style type="text/css">
 
 ```{r, results = 'asis', echo=F}
@@ -124,7 +123,7 @@ cat('@font-face { ',font_css_body,'}')
 ```
 
 </style>
-
+````
 
 ```{r, results= 'asis'}
 
@@ -132,7 +131,6 @@ test_font <- '<p style="font-family: \'{fontname}\'">This is a paragraph written
 str_glue(test_font)
 
 ```
-
 
 ## Random selected examples
 
@@ -162,6 +160,7 @@ for(i in sample(1:length(all_fonts),20)){
 }
 ```
 
+````{=html}
 <style type="text/css">
 
 ```{r, results = 'asis', echo=F}
@@ -189,7 +188,7 @@ for(i in sample(1:length(all_fonts),20)){
 ```
 
 </style>
-
+````
 
 ```{r, results= 'asis'}
 
@@ -233,8 +232,39 @@ for(i in 1:length(all_fonts) ){
       file = "distinctive_fonts.css", append=TRUE)
 }
 
-
 ```
 
+## distinctive_fonts_readable
 
+A subset of 50 fonts from the main list was chosen:
+
+  - they all load in chrome and safari
+  - they are visually distinctive
+  - they are readable
+
+```{r}
+library(stringr)
+all_fonts <- list.files('distinctive_fonts_readable/')
+
+save_font_names <- c()
+for(i in 1:length(all_fonts) ){
+  selected_font <- all_fonts[i]
+  
+  fontname <- gsub(".woff2",replacement = "", selected_font)
+  fontpath <- paste0('distinctive_font_readable/',selected_font)
+  save_font_names <- c(save_font_names,fontname)
+    
+  font_css_body <- c("font-family: '{fontname}';
+      src: url('{fontpath}') format('woff2');
+      font-display: swap;
+      ")
+  
+  font_css_body <- str_glue(font_css_body)
+  
+  cat('@font-face { ',font_css_body,'}',
+      '\n','\n',
+      file = "distinctive_fonts_readable.css", append=TRUE)
+}
+
+```
 

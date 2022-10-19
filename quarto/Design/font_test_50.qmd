@@ -1,15 +1,15 @@
 ---
-title: "All Fonts test"
+title: "50 Fonts test"
 css: distinctive_fonts.css
 editor: visual
-order: 3
+order: 4
 ---
 
-This is a test page that loads `distinctive_fonts.css`, which contains font-family definitions for all of the fonts in the `distinctive_fonts/` folder. The code chunk below automates the typing of `<p> ABCDEFGHIJ </p>` paragraphs to display some text in all of the available fonts.
+This is a test page that loads `distinctive_fonts_readable.css`, which contains font-family definitions for all of the fonts in the `distinctive_fonts_readable/` folder. The code chunk below automates the typing of each font name.
 
 ```{r, results='asis'}
 library(stringr)
-all_fonts <- list.files('distinctive_fonts/')
+all_fonts <- list.files('distinctive_fonts_readable/')
 fontnames <- gsub(".woff2","",all_fonts)
 
 for (fontname in fontnames){

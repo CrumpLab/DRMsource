@@ -3,6 +3,7 @@ title: "Voice Sources"
 editor: visual
 resources: en-AU-Neural2-A/
 bibliography: references.bib
+order: 5
 ---
 
 DRM lists from @roediger1995 were converted into auditory stimuli using Google's cloud text-to-speech service. This resulted in 12 different male voices (2 Australian, 2 British, 2 Indian, and 6 US accents) reading each word in each list, and 13 different female voices (3 Australian, 3 British, 2, Indian, and 5 US accents) reading each word in each list.
@@ -63,27 +64,27 @@ for (voice in english_voices$name) {
 
 ```
 
-
 ## Example 1
 
-
 <audio controls id="listenLive1">
-  <source src="en-AU-Neural2-A/anger/1_anger_CR_anger_1.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+
+<source src="en-AU-Neural2-A/anger/1_anger_CR_anger_1.mp3" type="audio/mpeg">
+
+Your browser does not support the audio element. </audio>
 
 ## Example 2
 
 <audio controls id="listenLive2">
-  <source src="en-AU-Neural2-A/anger/10_happy_study_anger_1.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+
+<source src="en-AU-Neural2-A/anger/10_happy_study_anger_1.mp3" type="audio/mpeg">
+
+Your browser does not support the audio element. </audio>
 
 ## Example 3
 
 <audio controls id="listenLive3">
-  <source src="en-AU-Neural2-A/anger/11_fight_study_anger_1.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
 
+<source src="en-AU-Neural2-A/anger/11_fight_study_anger_1.mp3" type="audio/mpeg">
+
+Your browser does not support the audio element. </audio>
 

@@ -239,6 +239,11 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../Design/font_test_50.html" class="sidebar-item-text sidebar-link">50 Fonts test</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../Design/voice_sources.html" class="sidebar-item-text sidebar-link">Voice Sources</a>
   </div>
 </li>
@@ -282,6 +287,7 @@ div.csl-indent {
   <li><a href="#programmatically-writing-css" id="toc-programmatically-writing-css" class="nav-link" data-scroll-target="#programmatically-writing-css">Programmatically writing CSS</a></li>
   <li><a href="#random-selected-examples" id="toc-random-selected-examples" class="nav-link" data-scroll-target="#random-selected-examples">Random selected examples</a></li>
   <li><a href="#css-file-creation" id="toc-css-file-creation" class="nav-link" data-scroll-target="#css-file-creation">CSS file creation</a></li>
+  <li><a href="#distinctive_fonts_readable" id="toc-distinctive_fonts_readable" class="nav-link" data-scroll-target="#distinctive_fonts_readable">distinctive_fonts_readable</a></li>
   </ul>
 </nav>
     </div>
@@ -338,11 +344,11 @@ div.csl-indent {
 </section>
 <section id="font-corpus" class="level2">
 <h2 class="anchored" data-anchor-id="font-corpus">Font Corpus</h2>
-<p>All of the distinctive fonts are located in the folder <code>distinctive_fonts/</code>. There are currently 291 fonts in the directory.</p>
+<p>All of the distinctive fonts are located in the folder <code>distinctive_fonts/</code>. There are currently 285 fonts in the directory.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">list.files</span>(<span class="st">'distinctive_fonts/'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 291</code></pre>
+<pre><code>[1] 285</code></pre>
 </div>
 </div>
 </section>
@@ -407,7 +413,6 @@ div.csl-indent {
 <span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">'@font-face { '</span>,font_css_body,<span class="st">'}'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <style type="text/css">
 
-
 @font-face {  font-family: '3DIsometricBlack-BWPPG';
 src: url('distinctive_fonts/3DIsometricBlack-BWPPG.woff2') format('woff2');
 font-weight: normal;
@@ -450,29 +455,58 @@ This is a paragraph written in 3DIsometricBlack-BWPPG.
 </div>
 <style type="text/css">
 
-
+@font-face {  font-family: 'Realprizesveryitalic-wA66';
+src: url('distinctive_fonts/Realprizesveryitalic-wA66.woff2') format('woff2');
+font-weight: normal;
+font-style: normal;
+font-display: swap; }
+@font-face {  font-family: 'Dirtchunk-0W0AR';
+src: url('distinctive_fonts/Dirtchunk-0W0AR.woff2') format('woff2');
+font-weight: normal;
+font-style: normal;
+font-display: swap; }
+@font-face {  font-family: 'MelonPudding-nRMLO';
+src: url('distinctive_fonts/MelonPudding-nRMLO.woff2') format('woff2');
+font-weight: normal;
+font-style: normal;
+font-display: swap; }
+@font-face {  font-family: 'NewfontRegular-66DD';
+src: url('distinctive_fonts/NewfontRegular-66DD.woff2') format('woff2');
+font-weight: normal;
+font-style: normal;
+font-display: swap; }
+@font-face {  font-family: 'Viadukt-25d3';
+src: url('distinctive_fonts/Viadukt-25d3.woff2') format('woff2');
+font-weight: normal;
+font-style: normal;
+font-display: swap; }
+@font-face {  font-family: 'CodedMessage-8VDg';
+src: url('distinctive_fonts/CodedMessage-8VDg.woff2') format('woff2');
+font-weight: normal;
+font-style: normal;
+font-display: swap; }
+@font-face {  font-family: 'GraffitiStreetBalloon-4Oep';
+src: url('distinctive_fonts/GraffitiStreetBalloon-4Oep.woff2') format('woff2');
+font-weight: normal;
+font-style: normal;
+font-display: swap; }
 @font-face {  font-family: 'NaturalToonsItalic-Mjlr';
 src: url('distinctive_fonts/NaturalToonsItalic-Mjlr.woff2') format('woff2');
 font-weight: normal;
 font-style: normal;
 font-display: swap; }
-@font-face {  font-family: 'EasyRideLeftalic-ywp5M';
-src: url('distinctive_fonts/EasyRideLeftalic-ywp5M.woff2') format('woff2');
+@font-face {  font-family: 'Monsgor-rgx4L';
+src: url('distinctive_fonts/Monsgor-rgx4L.woff2') format('woff2');
 font-weight: normal;
 font-style: normal;
 font-display: swap; }
-@font-face {  font-family: 'ChiselTipMarkers-ZPnz';
-src: url('distinctive_fonts/ChiselTipMarkers-ZPnz.woff2') format('woff2');
+@font-face {  font-family: 'Dkkubikajiri-KZyy';
+src: url('distinctive_fonts/Dkkubikajiri-KZyy.woff2') format('woff2');
 font-weight: normal;
 font-style: normal;
 font-display: swap; }
-@font-face {  font-family: 'BubbleButtAcademyItalic-dzz6';
-src: url('distinctive_fonts/BubbleButtAcademyItalic-dzz6.woff2') format('woff2');
-font-weight: normal;
-font-style: normal;
-font-display: swap; }
-@font-face {  font-family: 'RandcDemo-jqVy';
-src: url('distinctive_fonts/RandcDemo-jqVy.woff2') format('woff2');
+@font-face {  font-family: 'TheSenom-ywqY5';
+src: url('distinctive_fonts/TheSenom-ywqY5.woff2') format('woff2');
 font-weight: normal;
 font-style: normal;
 font-display: swap; }
@@ -481,77 +515,46 @@ src: url('distinctive_fonts/NeonFuture-6YY2A.woff2') format('woff2');
 font-weight: normal;
 font-style: normal;
 font-display: swap; }
-@font-face {  font-family: 'Summoners-jnaR';
-src: url('distinctive_fonts/Summoners-jnaR.woff2') format('woff2');
+@font-face {  font-family: 'Hargetus-DOAeD';
+src: url('distinctive_fonts/Hargetus-DOAeD.woff2') format('woff2');
 font-weight: normal;
 font-style: normal;
 font-display: swap; }
-@font-face {  font-family: 'Meckablecka-Kn0W';
-src: url('distinctive_fonts/Meckablecka-Kn0W.woff2') format('woff2');
+@font-face {  font-family: 'DinosaurAlt-YzvB4';
+src: url('distinctive_fonts/DinosaurAlt-YzvB4.woff2') format('woff2');
 font-weight: normal;
 font-style: normal;
 font-display: swap; }
-@font-face {  font-family: 'PoundsOfViolence-MXGB';
-src: url('distinctive_fonts/PoundsOfViolence-MXGB.woff2') format('woff2');
+@font-face {  font-family: 'NoisesInTheAttic-vae4';
+src: url('distinctive_fonts/NoisesInTheAttic-vae4.woff2') format('woff2');
 font-weight: normal;
 font-style: normal;
 font-display: swap; }
-@font-face {  font-family: 'Beastiny-6Y6x1';
-src: url('distinctive_fonts/Beastiny-6Y6x1.woff2') format('woff2');
+@font-face {  font-family: '3DThirteenPixelFontsRegular-2dPv';
+src: url('distinctive_fonts/3DThirteenPixelFontsRegular-2dPv.woff2') format('woff2');
 font-weight: normal;
 font-style: normal;
 font-display: swap; }
-@font-face {  font-family: 'Mallie-8M8pB';
-src: url('distinctive_fonts/Mallie-8M8pB.woff2') format('woff2');
+@font-face {  font-family: 'ArtNouveauByMartaVanEck-159Z';
+src: url('distinctive_fonts/ArtNouveauByMartaVanEck-159Z.woff2') format('woff2');
 font-weight: normal;
 font-style: normal;
 font-display: swap; }
-@font-face {  font-family: 'ZaiKinematografiaPolska1908-x3Rg0';
-src: url('distinctive_fonts/ZaiKinematografiaPolska1908-x3Rg0.woff2') format('woff2');
+@font-face {  font-family: 'JlrBubbleCar-KdaZ';
+src: url('distinctive_fonts/JlrBubbleCar-KdaZ.woff2') format('woff2');
 font-weight: normal;
 font-style: normal;
 font-display: swap; }
-@font-face {  font-family: 'Lateman-MVvZx';
-src: url('distinctive_fonts/Lateman-MVvZx.woff2') format('woff2');
+@font-face {  font-family: 'PolandCannedIntoFuture-OxE3';
+src: url('distinctive_fonts/PolandCannedIntoFuture-OxE3.woff2') format('woff2');
 font-weight: normal;
 font-style: normal;
 font-display: swap; }
-@font-face {  font-family: 'AmazonicPersonalUseBold-eZKGn';
-src: url('distinctive_fonts/AmazonicPersonalUseBold-eZKGn.woff2') format('woff2');
+@font-face {  font-family: 'Knievel3DRegular-BK0x';
+src: url('distinctive_fonts/Knievel3DRegular-BK0x.woff2') format('woff2');
 font-weight: normal;
 font-style: normal;
 font-display: swap; }
-@font-face {  font-family: 'PixelCase-E5dr';
-src: url('distinctive_fonts/PixelCase-E5dr.woff2') format('woff2');
-font-weight: normal;
-font-style: normal;
-font-display: swap; }
-@font-face {  font-family: 'CheeseHunter-X3DrZ';
-src: url('distinctive_fonts/CheeseHunter-X3DrZ.woff2') format('woff2');
-font-weight: normal;
-font-style: normal;
-font-display: swap; }
-@font-face {  font-family: 'CrochetPatternItalic-o57o';
-src: url('distinctive_fonts/CrochetPatternItalic-o57o.woff2') format('woff2');
-font-weight: normal;
-font-style: normal;
-font-display: swap; }
-@font-face {  font-family: 'HexkeyExpanded-2OWmW';
-src: url('distinctive_fonts/HexkeyExpanded-2OWmW.woff2') format('woff2');
-font-weight: normal;
-font-style: normal;
-font-display: swap; }
-@font-face {  font-family: 'HereBeDubstepRegular-JDaB';
-src: url('distinctive_fonts/HereBeDubstepRegular-JDaB.woff2') format('woff2');
-font-weight: normal;
-font-style: normal;
-font-display: swap; }
-@font-face {  font-family: 'SpeedRush-JRKVB';
-src: url('distinctive_fonts/SpeedRush-JRKVB.woff2') format('woff2');
-font-weight: normal;
-font-style: normal;
-font-display: swap; }
-
 
 </style>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (fontname <span class="cf">in</span> save_font_names){</span>
@@ -560,64 +563,64 @@ font-display: swap; }
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">str_glue</span>(test_font))</span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">'</span><span class="sc">\n</span><span class="st">'</span>)</span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p style="font-family: 'Realprizesveryitalic-wA66'; font-size: 50px;">
+ABCDEFGHIJ.
+</p>
+<p style="font-family: 'Dirtchunk-0W0AR'; font-size: 50px;">
+ABCDEFGHIJ.
+</p>
+<p style="font-family: 'MelonPudding-nRMLO'; font-size: 50px;">
+ABCDEFGHIJ.
+</p>
+<p style="font-family: 'NewfontRegular-66DD'; font-size: 50px;">
+ABCDEFGHIJ.
+</p>
+<p style="font-family: 'Viadukt-25d3'; font-size: 50px;">
+ABCDEFGHIJ.
+</p>
+<p style="font-family: 'CodedMessage-8VDg'; font-size: 50px;">
+ABCDEFGHIJ.
+</p>
+<p style="font-family: 'GraffitiStreetBalloon-4Oep'; font-size: 50px;">
+ABCDEFGHIJ.
+</p>
 <p style="font-family: 'NaturalToonsItalic-Mjlr'; font-size: 50px;">
 ABCDEFGHIJ.
 </p>
-<p style="font-family: 'EasyRideLeftalic-ywp5M'; font-size: 50px;">
+<p style="font-family: 'Monsgor-rgx4L'; font-size: 50px;">
 ABCDEFGHIJ.
 </p>
-<p style="font-family: 'ChiselTipMarkers-ZPnz'; font-size: 50px;">
+<p style="font-family: 'Dkkubikajiri-KZyy'; font-size: 50px;">
 ABCDEFGHIJ.
 </p>
-<p style="font-family: 'BubbleButtAcademyItalic-dzz6'; font-size: 50px;">
-ABCDEFGHIJ.
-</p>
-<p style="font-family: 'RandcDemo-jqVy'; font-size: 50px;">
+<p style="font-family: 'TheSenom-ywqY5'; font-size: 50px;">
 ABCDEFGHIJ.
 </p>
 <p style="font-family: 'NeonFuture-6YY2A'; font-size: 50px;">
 ABCDEFGHIJ.
 </p>
-<p style="font-family: 'Summoners-jnaR'; font-size: 50px;">
+<p style="font-family: 'Hargetus-DOAeD'; font-size: 50px;">
 ABCDEFGHIJ.
 </p>
-<p style="font-family: 'Meckablecka-Kn0W'; font-size: 50px;">
+<p style="font-family: 'DinosaurAlt-YzvB4'; font-size: 50px;">
 ABCDEFGHIJ.
 </p>
-<p style="font-family: 'PoundsOfViolence-MXGB'; font-size: 50px;">
+<p style="font-family: 'NoisesInTheAttic-vae4'; font-size: 50px;">
 ABCDEFGHIJ.
 </p>
-<p style="font-family: 'Beastiny-6Y6x1'; font-size: 50px;">
+<p style="font-family: '3DThirteenPixelFontsRegular-2dPv'; font-size: 50px;">
 ABCDEFGHIJ.
 </p>
-<p style="font-family: 'Mallie-8M8pB'; font-size: 50px;">
+<p style="font-family: 'ArtNouveauByMartaVanEck-159Z'; font-size: 50px;">
 ABCDEFGHIJ.
 </p>
-<p style="font-family: 'ZaiKinematografiaPolska1908-x3Rg0'; font-size: 50px;">
+<p style="font-family: 'JlrBubbleCar-KdaZ'; font-size: 50px;">
 ABCDEFGHIJ.
 </p>
-<p style="font-family: 'Lateman-MVvZx'; font-size: 50px;">
+<p style="font-family: 'PolandCannedIntoFuture-OxE3'; font-size: 50px;">
 ABCDEFGHIJ.
 </p>
-<p style="font-family: 'AmazonicPersonalUseBold-eZKGn'; font-size: 50px;">
-ABCDEFGHIJ.
-</p>
-<p style="font-family: 'PixelCase-E5dr'; font-size: 50px;">
-ABCDEFGHIJ.
-</p>
-<p style="font-family: 'CheeseHunter-X3DrZ'; font-size: 50px;">
-ABCDEFGHIJ.
-</p>
-<p style="font-family: 'CrochetPatternItalic-o57o'; font-size: 50px;">
-ABCDEFGHIJ.
-</p>
-<p style="font-family: 'HexkeyExpanded-2OWmW'; font-size: 50px;">
-ABCDEFGHIJ.
-</p>
-<p style="font-family: 'HereBeDubstepRegular-JDaB'; font-size: 50px;">
-ABCDEFGHIJ.
-</p>
-<p style="font-family: 'SpeedRush-JRKVB'; font-size: 50px;">
+<p style="font-family: 'Knievel3DRegular-BK0x'; font-size: 50px;">
 ABCDEFGHIJ.
 </p>
 </section>
@@ -648,6 +651,39 @@ ABCDEFGHIJ.
 <span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>      <span class="st">'</span><span class="sc">\n</span><span class="st">'</span>,<span class="st">'</span><span class="sc">\n</span><span class="st">'</span>,</span>
 <span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>      <span class="at">file =</span> <span class="st">"distinctive_fonts.css"</span>, <span class="at">append=</span><span class="cn">TRUE</span>)</span>
 <span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="distinctive_fonts_readable" class="level2">
+<h2 class="anchored" data-anchor-id="distinctive_fonts_readable">distinctive_fonts_readable</h2>
+<p>A subset of 50 fonts from the main list was chosen:</p>
+<ul>
+<li>they all load in chrome and safari</li>
+<li>they are visually distinctive</li>
+<li>they are readable</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>all_fonts <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="st">'distinctive_fonts_readable/'</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>save_font_names <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(all_fonts) ){</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  selected_font <span class="ot">&lt;-</span> all_fonts[i]</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  fontname <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">".woff2"</span>,<span class="at">replacement =</span> <span class="st">""</span>, selected_font)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  fontpath <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">'distinctive_font_readable/'</span>,selected_font)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  save_font_names <span class="ot">&lt;-</span> <span class="fu">c</span>(save_font_names,fontname)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  font_css_body <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"font-family: '{fontname}';</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="st">      src: url('{fontpath}') format('woff2');</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="st">      font-display: swap;</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="st">      "</span>)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  font_css_body <span class="ot">&lt;-</span> <span class="fu">str_glue</span>(font_css_body)</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">'@font-face { '</span>,font_css_body,<span class="st">'}'</span>,</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>      <span class="st">'</span><span class="sc">\n</span><span class="st">'</span>,<span class="st">'</span><span class="sc">\n</span><span class="st">'</span>,</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>      <span class="at">file =</span> <span class="st">"distinctive_fonts_readable.css"</span>, <span class="at">append=</span><span class="cn">TRUE</span>)</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
